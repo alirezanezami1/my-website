@@ -5,6 +5,8 @@
 
   /* ///// color  */
   --color-main-white: rgba(247, 247, 247, 1);
+  --color-white-bg: rgba(255, 255, 255, 1);
+  --color-main-border: rgba(228, 228, 228, 1);
 }
 
 body {
