@@ -1,1 +1,42 @@
 @import 'tailwindcss';
+@theme {
+  /* //// font  */
+  --font-sans: 'YEKAN-BAKH', sans-serif;
+
+  /* ///// color  */
+  --color-main-white: rgba(247, 247, 247, 1);
+}
+
+body {
+  background-color: var(--color-main-white);
+}
+
+@font-face {
+  font-family: 'YEKAN-BAKH';
+  src: url('/Fonts/YEKAN-BAKH-FANUM-04-REGULAR.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YEKAN-BAKH';
+  src: url('/Fonts/YEKAN-BAKH-FANUM-05-MEDIUM.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'YEKAN-BAKH';
+  src: url('/Fonts/YEKAN-BAKH-FANUM-06-BOLD.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'YEKAN-BAKH';
+  src: url('/Fonts/YEKAN-BAKH-FANUM-07-HEAVY.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
