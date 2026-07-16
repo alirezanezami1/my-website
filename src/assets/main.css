@@ -5,8 +5,22 @@
 
   /* ///// color  */
   --color-main-white: rgba(247, 247, 247, 1);
+  --color-second-white: rgba(245, 245, 245, 1);
   --color-white-bg: rgba(255, 255, 255, 1);
+  --color-orange-main: rgba(248, 107, 43, 1);
+  --color-orange-second: rgba(255, 51, 76, 1);
+
+  /* //// border  */
   --color-main-border: rgba(228, 228, 228, 1);
+  --color-white-border: rgba(255, 255, 255, 1);
+
+  /* //// text  */
+  --color-main-text: rgba(4, 4, 4, 1);
+  --color-second-text: rgba(33, 33, 33, 1);
+
+  --shadow-profile:
+    -0.44px 0.88px 2.19px 0px rgba(0, 0, 0, 0.18), -2.19px 3.5px 4.38px 0px rgba(0, 0, 0, 0.12),
+    -5.25px 8.31px 5.69px 0px rgba(0, 0, 0, 0.06), -8.75px 14.88px 7px 0px rgba(0, 0, 0, 0.02);
 }
 
 body {
