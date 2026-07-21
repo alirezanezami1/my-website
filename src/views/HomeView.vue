@@ -24,8 +24,11 @@ const socialMedia = ref([
   { name: 'تلگرام', icon: TelegramSvg, link: 'https://www.linkedin.com/in/alirezanezami1' },
 ])
 
+const currentMenu = ref('AboutMe')
+
 provide('socialMedia', socialMedia.value)
 provide('menuItems', menuItems.value)
+provide('currentMenu', currentMenu)
 </script>
 
 <template>
