@@ -1,20 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { getProfileData } from '@/Services/api.js'
+import { inject } from 'vue'
 
-const profile = ref(null)
-const loading = ref(true)
-
-onMounted(async () => {
-  try {
-    profile.value = await getProfileData()
-    console.log('دیتای دریافتی:', profile.value)
-  } catch (error) {
-    console.error('خطا در دریافت اطلاعات:', error)
-  } finally {
-    loading.value = false
-  }
-})
+const profile = inject('profile')
+const loading = inject('loading')
 </script>
 
 <template>
@@ -23,7 +11,7 @@ onMounted(async () => {
   >
     <img
       v-show="!loading"
-      :src="profile?.my_avatar.link"
+      :src="profile?.my_avatar.url"
       alt="profile"
       class="object-cover w-full h-full rounded-[7px]"
     />

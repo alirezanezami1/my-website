@@ -1,13 +1,18 @@
 <script setup>
-import { ref, provide } from 'vue'
+import { ref, provide, markRaw, onMounted } from 'vue'
 import BannerIntroduce from '@/components/BannerIntroduce.vue'
 import Header from '@/components/Header/IndexHeader.vue'
+
+import { getProfileData } from '@/Services/api.js'
 
 //// icons
 import GithubSvg from '@/components/Icons/GithubSvg.vue'
 import LinkedinSvg from '@/components/Icons/LinkedinSvg.vue'
 import InstagramSvg from '@/components/Icons/InstagramSvg.vue'
 import TelegramSvg from '@/components/Icons/TelegramSvg.vue'
+
+const profile = ref(null)
+const loading = ref(true)
 
 const menuItems = ref([
   { id: 'AboutMe', title: 'درباره من' },
@@ -18,10 +23,22 @@ const menuItems = ref([
 ])
 
 const socialMedia = ref([
-  { name: 'گیتهاب', icon: GithubSvg, link: 'https://github.com/alirezanezami1' },
-  { name: 'لینکدین', icon: LinkedinSvg, link: 'https://www.linkedin.com/in/alirezanezami1' },
-  { name: 'اینستاگرام', icon: InstagramSvg, link: 'https://www.linkedin.com/in/alirezanezami1' },
-  { name: 'تلگرام', icon: TelegramSvg, link: 'https://www.linkedin.com/in/alirezanezami1' },
+  { name: 'گیتهاب', icon: markRaw(GithubSvg), link: 'https://github.com/alirezanezami1' },
+  {
+    name: 'لینکدین',
+    icon: markRaw(LinkedinSvg),
+    link: 'https://www.linkedin.com/in/alirezanezami1',
+  },
+  {
+    name: 'اینستاگرام',
+    icon: markRaw(InstagramSvg),
+    link: 'https://www.linkedin.com/in/alirezanezami1',
+  },
+  {
+    name: 'تلگرام',
+    icon: markRaw(TelegramSvg),
+    link: 'https://www.linkedin.com/in/alirezanezami1',
+  },
 ])
 
 const currentMenu = ref('AboutMe')
@@ -29,6 +46,20 @@ const currentMenu = ref('AboutMe')
 provide('socialMedia', socialMedia.value)
 provide('menuItems', menuItems.value)
 provide('currentMenu', currentMenu)
+
+provide('profile', profile)
+provide('loading', loading)
+
+onMounted(async () => {
+  try {
+    profile.value = await getProfileData()
+    console.log('دیتای دریافتی:', profile.value)
+  } catch (error) {
+    console.error('خطا در دریافت اطلاعات:', error)
+  } finally {
+    loading.value = false
+  }
+})
 </script>
 
 <template>
