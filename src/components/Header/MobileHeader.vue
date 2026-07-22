@@ -12,8 +12,8 @@ const openMenu = ref(false)
 const showCopyModal = ref(false)
 
 const menuItems = inject('menuItems')
-const socialMedia = inject('socialMedia')
 const currentMenu = inject('currentMenu')
+const socialMedia = inject('socialMedia')
 
 const cvLink = inject('profile')
 
