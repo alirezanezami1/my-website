@@ -8,7 +8,7 @@ const socialMedia = inject('socialMedia')
 
 <template>
   <div
-    class="w-full bg-[url('src/assets/images/bg-footer.png')] bg-center bg-white-bg lg:border lg:border-main-border lg:rounded-xl"
+    class="w-full relative overflow-hidden bg-[url('src/assets/images/bg-footer.png')] bg-center bg-white-bg lg:border lg:border-main-border lg:rounded-xl"
   >
     <div class="flex flex-col justify-center items-center w-full gap-8 px-6 pb-6 pt-12">
       <div class="flex flex-col justify-center items-center w-full gap-8 max-w-[622px]">
