@@ -16,9 +16,11 @@
 
   /* //// text  */
   --color-main-text: rgba(4, 4, 4, 1);
+  --color-title-text: rgba(33, 33, 33, 1);
   --color-second-text: rgba(33, 33, 33, 1);
   --color-green-bg: rgba(233, 249, 241, 1);
   --color-green-txt: rgba(72, 212, 138, 1);
+  --color-gray-subtitle: rgba(124, 124, 124, 1);
 
   /* //// shadow  */
   --shadow-profile:
@@ -30,6 +32,14 @@
 
 body {
   background-color: var(--color-main-white);
+}
+
+@utility mobile-text {
+  @apply text-sm leading-7 font-normal;
+}
+
+@utility desktop-text {
+  @apply text-base leading-8 font-normal;
 }
 
 @font-face {

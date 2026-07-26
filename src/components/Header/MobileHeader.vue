@@ -82,7 +82,7 @@ async function CopyCvLink() {
                         "
                       />
                       <p
-                        class="text-sm leading-7"
+                        class="mobile-text"
                         :class="currentMenu == item.id ? 'text-orange-main' : 'text-main-text'"
                       >
                         {{ item.title }}

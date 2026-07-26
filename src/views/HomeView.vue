@@ -2,6 +2,7 @@
 import { ref, provide, markRaw, onMounted } from 'vue'
 import BannerIntroduce from '@/components/BannerIntroduce.vue'
 import Header from '@/components/Header/IndexHeader.vue'
+import Footer from '@/components/FooterView.vue'
 
 import { getProfileData } from '@/Services/api.js'
 
@@ -77,5 +78,6 @@ onMounted(async () => {
     </div>
 
     <!-- //// footer  -->
+    <Footer />
   </div>
 </template>

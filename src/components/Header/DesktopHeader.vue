@@ -1,6 +1,5 @@
 <script setup>
 import { inject } from 'vue'
-import PlusIcon from '../Icons/PlusIcon.vue'
 const menuItems = inject('menuItems')
 const currentMenu = inject('currentMenu')
 
