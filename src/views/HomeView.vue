@@ -3,6 +3,8 @@ import { ref, provide, markRaw, onMounted } from 'vue'
 import BannerIntroduce from '@/components/BannerIntroduce.vue'
 import Header from '@/components/Header/IndexHeader.vue'
 import Footer from '@/components/FooterView.vue'
+import ProfileImage from '@/components/ProfileImage.vue'
+import IntroduceView from '@/components/IntroduceView.vue'
 
 import { getProfileData } from '@/Services/api.js'
 
@@ -74,6 +76,44 @@ onMounted(async () => {
         class="w-full flex flex-col justify-start items-center px-6 pt-6 pb-8 lg:pb-16 bg-white-bg lg:border lg:border-main-border lg:rounded-xl"
       >
         <Header />
+
+        <div
+          class="grid justify-center items-start w-full grid-cols-1 lg:gap-16 lg:grid-cols-[196px_612px] p-6 pb-8 lg:pt-12 lg:pb-16"
+        >
+          <!-- //// sidebar  -->
+          <div class="flex flex-col gap-12 justify-center items-center">
+            <ProfileImage />
+
+            <div class="flex flex-col justify-center items-center gap-4 w-full">
+              <p class="desktop-text text-gray-subtitle">همراه من باشید در :</p>
+              <div class="flex flex-col justify-center items-center gap-3 w-full">
+                <a
+                  v-for="media in socialMedia"
+                  :key="media.name"
+                  :href="media.link"
+                  target="_blank"
+                  class="w-full"
+                  rel="noopener noreferrer"
+                >
+                  <BaseButton
+                    class="w-full gap-2.5 py-[11px] px-4 rounded-lg text-second-text bg-white-bg group hover:bg-second-white hover:text-orange-main transition-colors duration-150 ease-in-out border-[1.25px]"
+                    flexing="flex justify-between items-center"
+                  >
+                    <p class="mobile-text text-gray-subtitle group-hover:text-title-text">
+                      {{ media.name }}
+                    </p>
+                    <component :is="media.icon" class="w-5 h-5" />
+                  </BaseButton>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- //// main  -->
+          <div class="flex flex-col justify-start items-center w-full gap-10">
+            <IntroduceView />
+          </div>
+        </div>
       </div>
     </div>
 

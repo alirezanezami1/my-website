@@ -20,7 +20,7 @@ const socialMedia = inject('socialMedia')
               <p class="text-base lg:text-lg lg:leading-[150%] leading-8 font-bold text-title-text">
                 علیرضا نظامی
               </p>
-              <div class="w-0.5 h-4 border border-main-border"></div>
+              <div class="w-[1px] h-4 border border-main-border bg-main-border"></div>
               <p class="text-gray-subtitle mobile-text lg:desktop-text">فرانت اند دولوپر</p>
             </div>
 
