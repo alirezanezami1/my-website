@@ -7,9 +7,11 @@ import BaseButton from '../UI/BaseButton.vue'
 import PlusIcon from '../Icons/PlusIcon.vue'
 import CloseIcon from '../Icons/CloseIcon.vue'
 import CopyCvModal from '../UI/CopyCvModal.vue'
+import { useCopyLink } from '@/composables/copyLink.js'
+
+const { showCopyModal, CopyCvLink } = useCopyLink()
 
 const openMenu = ref(false)
-const showCopyModal = ref(false)
 
 const menuItems = inject('menuItems')
 const currentMenu = inject('currentMenu')
@@ -20,18 +22,6 @@ const cvLink = inject('profile')
 function changeActiveMenu(id) {
   currentMenu.value = id
 }
-
-async function CopyCvLink() {
-  try {
-    await navigator.clipboard.writeText(cvLink.value?.resume_file.url)
-    showCopyModal.value = true
-    setTimeout(() => {
-      showCopyModal.value = false
-    }, 1500)
-  } catch (err) {
-    console.log(err)
-  }
-}
 </script>
 
 <template>
@@ -40,7 +30,7 @@ async function CopyCvLink() {
       <MenuIcon />
     </BaseButton>
     <ProfileImage />
-    <BaseButton class="gap-2 p-3.5 rounded-lg" @click="CopyCvLink">
+    <BaseButton class="gap-2 p-3.5 rounded-lg" @click="CopyCvLink(cvLink?.resume_file?.url)">
       <ShareIcon />
     </BaseButton>
   </div>
