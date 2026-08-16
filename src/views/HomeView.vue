@@ -6,6 +6,7 @@ import Footer from '@/components/FooterView.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
 import IntroduceView from '@/components/IntroduceView.vue'
 import AboutMeView from '@/components/AboutMeView.vue'
+import ProjectsView from '@/components/ProjectsView.vue'
 
 import { getProfileData } from '@/Services/api.js'
 
@@ -117,6 +118,10 @@ onMounted(async () => {
             <IntroduceView />
 
             <AboutMeView />
+
+            <FrameIconPlus />
+
+            <ProjectsView />
 
             <FrameIconPlus />
           </main>
