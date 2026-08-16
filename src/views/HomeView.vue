@@ -81,7 +81,9 @@ onMounted(async () => {
           class="grid justify-center items-start w-full grid-cols-1 lg:gap-16 lg:grid-cols-[196px_612px] p-6 pb-8 lg:pt-12 lg:pb-16"
         >
           <!-- //// sidebar  -->
-          <div class="flex flex-col gap-12 justify-center items-center">
+          <aside
+            class="hidden lg:flex flex-col sticky top-12 self-start gap-12 justify-center items-center"
+          >
             <ProfileImage />
 
             <div class="flex flex-col justify-center items-center gap-4 w-full">
@@ -107,12 +109,12 @@ onMounted(async () => {
                 </a>
               </div>
             </div>
-          </div>
+          </aside>
 
           <!-- //// main  -->
-          <div class="flex flex-col justify-start items-center w-full gap-10">
+          <main class="flex flex-col justify-start items-center w-full">
             <IntroduceView />
-          </div>
+          </main>
         </div>
       </div>
     </div>

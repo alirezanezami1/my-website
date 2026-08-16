@@ -32,7 +32,7 @@ const cvLink = inject('profile')
           >
             <div class="flex justify-center items-center gap-2.5 w-full">
               <p class="mobile-text font-semibold">پروژه ها</p>
-              <PlusIcon stroke-width="1.5" />
+              <PlusIcon strokeWidth="1.5" />
             </div>
             <img src="../assets/images/Rectangle.png" class="absolute inset-0" />
           </button>
@@ -50,13 +50,21 @@ const cvLink = inject('profile')
         </div>
       </div>
 
-      <BaseButton class="gap-2 p-3.5 rounded-lg" @click="CopyCvLink(cvLink?.resume_file?.url)">
+      <BaseButton
+        class="hidden lg:block gap-2 p-3.5 rounded-lg"
+        @click="CopyCvLink(cvLink?.resume_file?.url)"
+      >
         <ShareIcon />
       </BaseButton>
     </div>
 
     <div class="w-full">
-      <FrameIconPlus />
+      <!-- <FrameIconPlus /> -->
+      <img
+        src="../assets/images/frameIconPlus.png"
+        alt="icon"
+        class="w-full max-sm:object-cover h-[11px]"
+      />
     </div>
   </div>
 
