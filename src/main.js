@@ -10,13 +10,11 @@ import router from './router'
 //// components
 import BaseButton from './components/UI/BaseButton.vue'
 import PlusIcon from './components/Icons/PlusIcon.vue'
-import FrameIconPlus from './components/Icons/FrameIconPlus.vue'
 
 const app = createApp(App)
 
 app.component('BaseButton', BaseButton)
 app.component('PlusIcon', PlusIcon)
-app.component('FrameIconPlus', FrameIconPlus)
 
 app.use(createPinia())
 app.use(router)
