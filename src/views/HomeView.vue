@@ -5,6 +5,7 @@ import Header from '@/components/Header/IndexHeader.vue'
 import Footer from '@/components/FooterView.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
 import IntroduceView from '@/components/IntroduceView.vue'
+import AboutMeView from '@/components/AboutMeView.vue'
 
 import { getProfileData } from '@/Services/api.js'
 
@@ -112,8 +113,12 @@ onMounted(async () => {
           </aside>
 
           <!-- //// main  -->
-          <main class="flex flex-col justify-start items-center w-full">
+          <main class="flex flex-col justify-start items-center w-full gap-8 lg:gap-10">
             <IntroduceView />
+
+            <AboutMeView />
+
+            <FrameIconPlus />
           </main>
         </div>
       </div>

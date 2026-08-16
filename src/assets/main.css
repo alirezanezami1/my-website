@@ -42,6 +42,14 @@ body {
   @apply text-sm leading-7 font-normal;
 }
 
+@utility title-button-desktop {
+  @apply text-sm leading-7 font-semibold;
+}
+
+@utility title-button-mobile {
+  @apply text-xs leading-6 font-semibold;
+}
+
 @utility desktop-text {
   @apply text-base leading-8 font-normal;
 }
