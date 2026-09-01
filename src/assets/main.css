@@ -83,3 +83,15 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+/* ///// custom toastification  */
+.Vue-Toastification__toast-body.custom-toast {
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+@media screen and (max-width: 450px) {
+  .Vue-Toastification__toast-body.custom-toast {
+    font-size: 12px;
+  }
+}

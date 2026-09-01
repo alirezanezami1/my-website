@@ -1,5 +1,4 @@
 import { ref } from 'vue'
-import { getProfileData } from '@/Services/api.js'
 
 const showCopyModal = ref(false)
 

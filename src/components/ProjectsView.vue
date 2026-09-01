@@ -1,3 +1,8 @@
+<script setup>
+const props = defineProps(['projectPortfolio'])
+console.log(props.projectPortfolio)
+</script>
+
 <template>
   <div class="flex flex-col justify-center items-start gap-4 lg:gap-6 w-full">
     <div class="flex justify-start w-full items-center">

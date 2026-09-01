@@ -9,6 +9,7 @@ import AboutMeView from '@/components/AboutMeView.vue'
 import ProjectsView from '@/components/ProjectsView.vue'
 
 import { getProfileData } from '@/Services/api.js'
+import { getProjectsData } from '@/Services/api.js'
 
 //// icons
 import GithubSvg from '@/components/Icons/GithubSvg.vue'
@@ -16,6 +17,9 @@ import LinkedinSvg from '@/components/Icons/LinkedinSvg.vue'
 import InstagramSvg from '@/components/Icons/InstagramSvg.vue'
 import TelegramSvg from '@/components/Icons/TelegramSvg.vue'
 
+const project = ref([])
+const projectPortfolio = ref(null)
+const projectExperience = ref(null)
 const profile = ref(null)
 const loading = ref(true)
 
@@ -58,7 +62,9 @@ provide('loading', loading)
 onMounted(async () => {
   try {
     profile.value = await getProfileData()
-    console.log('دیتای دریافتی:', profile.value)
+    project.value = await getProjectsData()
+
+    console.log('دیتای دریافتی:', project.value)
   } catch (error) {
     console.error('خطا در دریافت اطلاعات:', error)
   } finally {
@@ -121,7 +127,7 @@ onMounted(async () => {
 
             <FrameIconPlus />
 
-            <ProjectsView />
+            <ProjectsView :projectPortfolio="project" />
 
             <FrameIconPlus />
           </main>
