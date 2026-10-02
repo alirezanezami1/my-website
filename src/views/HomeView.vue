@@ -44,12 +44,12 @@ const socialMedia = ref([
   {
     name: 'اینستاگرام',
     icon: markRaw(InstagramSvg),
-    link: 'https://www.linkedin.com/in/alirezanezami1',
+    link: 'https://www.instagram.com/itsarn1/',
   },
   {
     name: 'تلگرام',
     icon: markRaw(TelegramSvg),
-    link: 'https://www.linkedin.com/in/alirezanezami1',
+    link: 'https://t.me/itsarn01',
   },
 ])
 
