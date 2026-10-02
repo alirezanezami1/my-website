@@ -7,6 +7,8 @@ import ProfileImage from '@/components/ProfileImage.vue'
 import IntroduceView from '@/components/IntroduceView.vue'
 import AboutMeView from '@/components/AboutMeView.vue'
 import ProjectsView from '@/components/ProjectsView.vue'
+import ContactUsView from '@/components/ContactUsView.vue'
+import { useToast } from 'vue-toastification'
 
 import { getProfileData } from '@/Services/api.js'
 import { getProjectsData } from '@/Services/api.js'
@@ -22,6 +24,7 @@ const projectPortfolio = ref(null)
 const projectExperience = ref(null)
 const profile = ref(null)
 const loading = ref(true)
+const toast = useToast()
 
 const menuItems = ref([
   { id: 'AboutMe', title: 'درباره من' },
@@ -66,7 +69,7 @@ onMounted(async () => {
 
     console.log('دیتای دریافتی:', project.value)
   } catch (error) {
-    console.error('خطا در دریافت اطلاعات:', error)
+    toast.error('در دریافت اطلاعات مشکلی پیش آمد. لطفاً بعداً دوباره تلاش کنید.')
   } finally {
     loading.value = false
   }
@@ -127,9 +130,11 @@ onMounted(async () => {
 
             <FrameIconPlus />
 
-            <ProjectsView :projectPortfolio="project" />
+            <ProjectsView />
 
             <FrameIconPlus />
+
+            <ContactUsView />
           </main>
         </div>
       </div>
