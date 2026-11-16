@@ -10,8 +10,8 @@ import ProjectsView from '@/components/ProjectsView.vue'
 import ContactUsView from '@/components/ContactUsView.vue'
 import { useToast } from 'vue-toastification'
 
-import { getProfileData } from '@/Services/api.js'
-import { getProjectsData } from '@/Services/api.js'
+import { getProfileData } from '@/services/api.js'
+import { getProjectsData } from '@/services/api.js'
 
 //// icons
 import GithubSvg from '@/components/Icons/GithubSvg.vue'
