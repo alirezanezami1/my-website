@@ -62,11 +62,16 @@ provide('currentMenu', currentMenu)
 provide('profile', profile)
 provide('loading', loading)
 
+provide('projectPortfolio', projectPortfolio)
+provide('projectExperience', projectExperience)
+
 onMounted(async () => {
   try {
     profile.value = await getProfileData()
     project.value = await getProjectsData()
 
+    projectPortfolio.value = project.value.filter((item) => item.acf.show_in_portfolio)
+    projectExperience.value = project.value.filter((item) => item.acf.show_in_experience)
     console.log('دیتای دریافتی:', project.value)
   } catch (error) {
     toast.error('در دریافت اطلاعات مشکلی پیش آمد. لطفاً بعداً دوباره تلاش کنید.')

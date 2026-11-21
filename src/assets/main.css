@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'swiper/css';
 @theme {
   /* //// font  */
   --font-sans: 'YEKAN-BAKH', sans-serif;
@@ -7,6 +8,7 @@
   --color-main-white: rgba(247, 247, 247, 1);
   --color-second-white: rgba(245, 245, 245, 1);
   --color-white-bg: rgba(255, 255, 255, 1);
+  --color-gray-bg: rgba(228, 228, 228, 1);
   --color-orange-main: rgba(248, 107, 43, 1);
   --color-orange-second: rgba(255, 51, 76, 1);
 
@@ -52,6 +54,10 @@ body {
 
 @utility desktop-text {
   @apply text-base leading-8 font-normal;
+}
+
+@utility desktop-text2 {
+  @apply text-base leading-8 font-semibold;
 }
 
 @font-face {
