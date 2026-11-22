@@ -3,11 +3,17 @@ import { ref, inject } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 const swiperInstance = ref(null)
+const activeIndex = ref(0)
 
 const projectPortfolio = inject('projectPortfolio')
 
 function onSwiper(swiper) {
   swiperInstance.value = swiper
+}
+
+function onSlideChange(swiper) {
+  activeIndex.value = swiper.activeIndex
+  console.log('slide changed', activeIndex.value)
 }
 
 function formatNumber(index) {
@@ -22,7 +28,7 @@ function formatNumber(index) {
         <p class="title-button-mobile lg:title-button-desktop text-title-text">پروژه ها</p>
       </TitleButton>
     </div>
-    <Swiper @swiper="onSwiper" class="w-full">
+    <Swiper @swiper="onSwiper" :space-between="10" @slideChange="onSlideChange" class="w-full">
       <SwiperSlide v-for="(project, index) in projectPortfolio" :key="project.id">
         <div class="flex flex-col justify-center items-center gap-4 w-full">
           <!-- ///// header  -->
@@ -96,5 +102,60 @@ function formatNumber(index) {
         </div>
       </SwiperSlide>
     </Swiper>
+    <div class="flex justify-between items-center w-full">
+      <div class="flex justify-start items-center gap-2">
+        <div
+          v-for="(_, index) in projectPortfolio"
+          :key="index"
+          class="flex justify-center items-center gap-2.5 py-1 px-4 rounded-lg border cursor-pointer desktop-text text-title-text"
+          :class="activeIndex === index ? 'border-orange-second' : 'border-main-border'"
+          @click="swiperInstance?.slideTo(index)"
+        >
+          {{ index + 1 }}
+        </div>
+      </div>
+      <div class="flex justify-end items-center gap-3">
+        <div
+          @click="swiperInstance?.slidePrev()"
+          class="flex justify-center items-center py-2.5 px-[22px] rounded-full border border-main-border cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              d="M7.5 5L12.5 10L7.5 15"
+              stroke-width="1.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="#212121"
+            />
+          </svg>
+        </div>
+        <div
+          @click="swiperInstance?.slideNext()"
+          class="flex justify-center items-center py-2.5 px-[22px] rounded-full border border-main-border rotate-180 cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              d="M7.5 5L12.5 10L7.5 15"
+              stroke-width="1.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="#212121"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
