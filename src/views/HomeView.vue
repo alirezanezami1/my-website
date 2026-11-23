@@ -20,8 +20,8 @@ import InstagramSvg from '@/components/Icons/InstagramSvg.vue'
 import TelegramSvg from '@/components/Icons/TelegramSvg.vue'
 
 const project = ref([])
-const projectPortfolio = ref(null)
-const projectExperience = ref(null)
+const projectPortfolio = ref([])
+const projectExperience = ref([])
 const profile = ref(null)
 const loading = ref(true)
 const toast = useToast()

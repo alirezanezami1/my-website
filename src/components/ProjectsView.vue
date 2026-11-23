@@ -1,24 +1,44 @@
 <script setup>
-import { ref, inject } from 'vue'
+import { ref, inject, watch, nextTick } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 const swiperInstance = ref(null)
 const activeIndex = ref(0)
+const isBeginning = ref(true)
+const isEnd = ref(false)
 
 const projectPortfolio = inject('projectPortfolio')
 
+function updateNavigationState(swiper) {
+  isBeginning.value = swiper.isBeginning
+  isEnd.value = swiper.isEnd
+}
+
 function onSwiper(swiper) {
   swiperInstance.value = swiper
+  updateNavigationState(swiper)
 }
 
 function onSlideChange(swiper) {
   activeIndex.value = swiper.activeIndex
-  console.log('slide changed', activeIndex.value)
+  updateNavigationState(swiper)
 }
 
 function formatNumber(index) {
   return String(index + 1).padStart(2, '0')
 }
+
+watch(
+  () => projectPortfolio.value?.length,
+  async () => {
+    await nextTick()
+
+    if (swiperInstance.value) {
+      swiperInstance.value.update()
+      updateNavigationState(swiperInstance.value)
+    }
+  },
+)
 </script>
 
 <template>
@@ -104,7 +124,7 @@ function formatNumber(index) {
     </Swiper>
     <div class="flex justify-between items-center w-full">
       <div class="flex justify-start items-center gap-2">
-        <div
+        <button
           v-for="(_, index) in projectPortfolio"
           :key="index"
           class="flex justify-center items-center gap-2.5 py-1 px-4 rounded-lg border cursor-pointer desktop-text text-title-text"
@@ -112,12 +132,14 @@ function formatNumber(index) {
           @click="swiperInstance?.slideTo(index)"
         >
           {{ index + 1 }}
-        </div>
+        </button>
       </div>
       <div class="flex justify-end items-center gap-3">
-        <div
+        <button
+          :disabled="isBeginning"
           @click="swiperInstance?.slidePrev()"
           class="flex justify-center items-center py-2.5 px-[22px] rounded-full border border-main-border cursor-pointer"
+          :class="isBeginning ? 'opacity-50 cursor-default' : 'opacity-100'"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -134,10 +156,12 @@ function formatNumber(index) {
               stroke="#212121"
             />
           </svg>
-        </div>
-        <div
+        </button>
+        <button
+          :disabled="isEnd"
           @click="swiperInstance?.slideNext()"
           class="flex justify-center items-center py-2.5 px-[22px] rounded-full border border-main-border rotate-180 cursor-pointer"
+          :class="isEnd ? 'opacity-50 cursor-default' : 'opacity-100'"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +178,7 @@ function formatNumber(index) {
               stroke="#212121"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </div>
   </div>
