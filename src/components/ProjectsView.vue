@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject, watch, nextTick } from 'vue'
+import { ref, inject, watch, nextTick, computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 const swiperInstance = ref(null)
